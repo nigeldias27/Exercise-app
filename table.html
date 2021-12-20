@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Table - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 20px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+#myForm{
+    display: block;
+}
+</style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>Always Fit</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="table.html"><i class="fas fa-table"></i><span>LeaderBoard</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-cogs"></i><span>Settings</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-dumbbell"></i><span>Custom Workout</span></a></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group"><input id="friend-request" class="bg-light form-control border-0 small" type="text" placeholder="Search for friend by email"><a href="javascript:clic()"class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></a></div>
+                        </form>
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
+                                <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown">
+                                    <form class="me-auto navbar-search w-100">
+                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for friend by email">
+                                            <div class="input-group-append"><a href="search.html"class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></a></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="badge bg-danger badge-counter" id="nofr"></span><i class="fas fa-user fa-fw"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-end dropdown-list animated--grow-in" id="friendrequest">
+                                        </div>
+                                </div>
+                                <div class="shadow dropdown-list dropdown-menu dropdown-menu-end" aria-labelledby="alertsDropdown"></div>
+                            </li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" id="username_profile">Nigel Dias</span></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">LeaderBoard</h3>
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 fw-bold">Friends</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 text-nowrap">
+                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
+                                                <option value="10" selected="">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>&nbsp;</label></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
+                                </div>
+                            </div>
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                <table class="table my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th></th>
+                                            <th>Calories Burnt</th>
+                                            <th>Point</th>
+                                            <th>Start date</th>
+                                            <th>Chat</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody">
+                                                                           </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td><strong>Name</strong></td>
+                                            <td><strong></strong></td>
+                                            <td><strong>Calories Burnt</strong></td>
+                                            <td><strong>Point</strong></td>
+                                            <td><strong>Start Date</strong></td>
+                                            <td><strong>Chat</strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 align-self-center">
+                                    <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                        <ul class="pagination">
+                                            <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <div class="chat-popup" id="myForm">
+        
+      </div>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+//When creating points, calories,start date,chat make sure to change the firebase set of fr and f
+        function openForm() {
+  document.getElementById("myForm").innerHTML = '<div class="form-container" style="padding-top: 0px;"><div class="row" style="background-color: #4E73DF;height: 45px;"><div class="col" style="color: #f1f1f1;"><h3 style="font-weight: bold;margin-top: 10px;">Chat</h3></div><div class="col" align="right"><a  href="javascript:closeForm()"style="margin-top: 10px;background-color: #4E73DF;padding: 0px;margin-right: 5px;" type="button" ><i class="fas fa-window-minimize" style="color: #f1f1f1;"></i></a></div></div><div style="overflow-y: scroll;width: 100%;max-height: 40vh;"><div style="background-color:#4E73DF;border-radius: 10px;"><p style="color: #f1f1f1;margin: 10px;padding-top: 10px;">vndjnkn dklvvm mdvkld nkvndkjn kvjknv</p></div><div style="background-color:rgb(236, 236, 236);border-radius: 10px;box-shadow: blacks;"><p style="color: #808080;margin: 10px;padding-top: 10px;">vndjnkn dklvvm mdvkld nkvndkjn kvjknv</p></div></div><div class="row" style="margin-top: 10px;margin-bottom: 10px;"><div class="col-10" style="display: flex;align-items: center;justify-content: center;">          <textarea placeholder="Type message.." name="msg" required></textarea></div><div class="col"  style="display: flex;align-items: center;"><a href="javascript:chat()"><i class= "fas fa-paper-plane" style="color: #4E73DF;margin: auto;font-size: 25px;"></i></button></div></div></div>';
+}
+
+function closeForm() {
+  document.getElementById("myForm").innerHTML = "";
+}
+
+var firebaseConfig = {
+          apiKey: "AIzaSyB3GLp4gwJEu5lN5kbi8voqIWEmNT-QC4Y",
+          authDomain: "alwaysfit-a14c2.firebaseapp.com",
+          projectId: "alwaysfit-a14c2",
+          storageBucket: "alwaysfit-a14c2.appspot.com",
+          messagingSenderId: "916716548521",
+          databaseURL:"https://alwaysfit-a14c2-default-rtdb.firebaseio.com/"
+        };
+      
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        document.getElementById('username_profile').innerHTML=localStorage.getItem('user').split('|')[2]
+            if(localStorage.getItem('friend-req1')!='null' && localStorage.getItem('friend-req1')!=null){
+       alert('Sent')
+        firebase.database().ref('users/'+localStorage.getItem('friend-req1')).set(JSON.parse(localStorage.getItem('friend-req')));
+        localStorage.setItem('friend-req1',null);
+        localStorage.setItem('friend-req',null);  
+      }
+      if(localStorage.getItem('fr1')!='null' && localStorage.getItem('fr1')!=null){
+        firebase.database().ref('users/'+localStorage.getItem('fr')).set(JSON.parse(localStorage.getItem('fr1')));
+    
+        firebase.database().ref('users/'+localStorage.getItem('fr2k')).set(JSON.parse(localStorage.getItem('fr2')));
+        localStorage.setItem('fr',null);
+        localStorage.setItem('fr1',null);
+        localStorage.setItem('fr2k',null);
+        localStorage.setItem('fr2',null);           
+      }
+      if(localStorage.getItem('fr1d')!='null' && localStorage.getItem('fr1d')!=null){
+        firebase.database().ref('users/'+localStorage.getItem('frd')).set(JSON.parse(localStorage.getItem('fr1d')));
+        localStorage.setItem('fr1d',null);
+        localStorage.setItem('frd',null);
+      }
+
+
+      firebase.database().ref('users').on('value',gtData,erData);
+        function gtData(data){
+            var users=data.val();
+            var keys = Object.keys(users);
+            var inside_html='<h6 class="dropdown-header">Friend requests</h6>';
+            var inside_friend_html='';
+            for(var i =0;i<keys.length;i++){
+                var k=keys[i];
+
+                if(users[k].email==localStorage.getItem('user').split('|')[1]){
+                    if(users[k].friend_request!=undefined){
+                document.getElementById('nofr').innerHTML=(users[k].friend_request.split('|').length-1).toString();
+                for(var x =0;x<users[k].friend_request.split('|').length-1;x++){
+                var l=users[k].friend_request.split('|')[x];
+                inside_html=inside_html+'<div class="fw-bold"><div class="text-truncate"><span>'+l+'</span></div><p class="small text-gray-500 mb-0"><a href="javascript:c(\''+l+'\',\'accept\')"><button class="btn btn-success" style="padding-top:0px;padding-bottom:0px;padding-left:2.5px;padding-right:2.5px;"><i class="fa fa-check" style="color:white;font-size:10px;"></i></button></a> <a href="javascript:c(\''+l+'\',\'decline\')"><button class="btn btn-danger" style="padding-top:0px;padding-bottom:0px;padding-left:2.5px;padding-right:2.5px;"><i class="fa fa-times" style="color:white;font-size:10px;"></i></button></a></p></div>'    
+                 }}
+                 if(users[k].friends!=undefined){
+                 for(var x =0;x<users[k].friends.split('|').length-1;x++){
+                    
+                    var l=users[k].friends.split('|')[x];
+                    for(var a=0;a<keys.length;a++){
+                        var b = keys[a]
+                        console.log(b)
+                        if(users[b].email==l){
+                            inside_friend_html=inside_friend_html+'<tr><td>'+users[b].name+'</td><td></td><td>2345</td><td>33</td><td>2008/11/28</td><td><a href="javascript:openForm()"><button class="btn-primary bg-primary" style="border-radius: 15px;background-color: blue;"><i class="fas fa-comments"></i></button></a></td></tr>'
+                        }
+                    }
+                     
+                }}
+                 
+
+        }
+            }
+            
+            console.log(inside_html) 
+            document.getElementById('friendrequest').innerHTML=inside_html;
+            document.getElementById('tableBody').innerHTML=inside_friend_html;
+
+        }
+        function erData(err){console.log(err)}
+
+      function c(c,d) {
+
+        firebase.database().ref('users').on('value',gotData,errData);
+        function gotData(data){
+            var users=data.val();
+            var keys = Object.keys(users);
+            if(d=="accept"){
+                for(var i =0;i<keys.length;i++){
+                var k=keys[i];
+                console.log(i);
+                
+                if(users[k].email==c){
+                    if(users[k].friends==undefined||users[k].friends==''){
+                    localStorage.setItem('fr2k',k)
+                    localStorage.setItem('fr2',JSON.stringify({friends:localStorage.getItem('user').split('|')[1]+'|',friend_request:users[k].friend_request,custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name}))
+                    console.log(localStorage.getItem('fr2'));
+                    console.log(localStorage.getItem('fr2k'));
+                }
+                else{
+                    localStorage.setItem('fr2k',k)
+                    localStorage.setItem('fr',JSON.stringify({friends:users[k].friends+localStorage.getItem('user').split('|')[1]+'|',friend_request:users[k].friend_request,custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name}))
+                    console.log(localStorage.getItem('fr2'));
+                    console.log(localStorage.getItem('fr2k'));
+                }
+                }
+                
+
+                if(users[k].email==localStorage.getItem('user').split('|')[1]){
+                if(users[k].friends==undefined||users[k].friends==''){
+                    localStorage.setItem('fr',k)
+                    localStorage.setItem('fr1',JSON.stringify({friends:c+'|',friend_request:users[k].friend_request.replace(c+'|',""),custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name}))
+                    console.log(localStorage.getItem('fr'));
+                    console.log(localStorage.getItem('fr1'));
+                    //   firebase.database().ref('users/'+k).set({friends:c+'|',friend_request:users[k].friend_request.replace(c+'|',""),password:users[k].password,email:users[k].email,name:users[k].name});
+                }
+                else{
+                    localStorage.setItem('fr',k)
+                    localStorage.setItem('fr1',JSON.stringify({friends:users[k].friends+c+'|',friend_request:users[k].friend_request.replace(c+'|',""),custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name}))
+                    console.log(localStorage.getItem('fr'));
+                    console.log(localStorage.getItem('fr1'));
+                    //  firebase.database().ref('users/'+k).set({friends:users[k].friends+c+'|',friend_request:users[k].friend_request.replace(c+'|',""),password:users[k].password,email:users[k].email,name:users[k].name});
+                }
+               
+            }
+                    
+                 
+            }
+            setTimeout(()=>{location.reload();},3000);
+
+            }
+            if(d=="decline"){
+                for(var i =0;i<keys.length;i++){
+                var k=keys[i];
+                console.log(i);
+
+                if(users[k].email==localStorage.getItem('user').split('|')[1]){
+                   localStorage.setItem('frd',k)
+                    localStorage.setItem('fr1d',JSON.stringify({friends:users[k].friends,friend_request:users[k].friend_request.replace(c+'|',""),custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name}))
+                 //   firebase.database().ref('users/'+k).set({friends:c+'|',friend_request:users[k].friend_request.replace(c+'|',""),password:users[k].password,email:users[k].email,name:users[k].name});
+                 //  setTimeout(()=>{location.reload();},3000);
+              
+               
+            }
+                    
+                 
+            }
+            setTimeout(()=>{location.reload();},3000);
+
+            }
+            
+        }
+        function errData(err){console.log(err)}
+      }
+        function clic(){
+          
+        firebase.database().ref('users').on('value',gotData,errData);
+        function gotData(data){
+            var users=data.val();
+            var keys = Object.keys(users);
+            for(var i =0;i<keys.length;i++){
+                var k=keys[i];
+                console.log(i);
+
+                if (users[k].email==document.getElementById('friend-request').value){
+                    if(users[k].custom_workout==undefined){
+                        if(users[k].friend_request==undefined){
+                      console.log(localStorage.getItem('user').split('|')[1]);
+                      localStorage.setItem('friend-req1',k);      
+                    localStorage.setItem('friend-req',JSON.stringify({friends:users[k].friends,friend_request:localStorage.getItem('user').split('|')[1]+'|',custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name}));
+                   //   firebase.database().ref('users/'+k).set({friend_request:localStorage.getItem('user').split('|')[1],password:users[k].password,email:users[k].email,name:users[k].name});
+                   setTimeout(()=>{location.reload();},3000);
+                }
+                    else{
+                        localStorage.setItem('friend-req1',k);
+                        localStorage.setItem('friend-req',JSON.stringify({friends:users[k].friends,friend_request:users[k].friend_request+localStorage.getItem('user').split('|')[1]+'|',custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name}));    
+                   // firebase.database().ref('users/'+k).set({friend_request:users[k].friend_request+'|'+localStorage.getItem('user').split('|')[1],password:users[k].password,email:users[k].email,name:users[k].name});
+                   setTimeout(()=>{location.reload();},3000);    
+                }
+                }
+                else{
+                    if(users[k].friend_request==undefined){
+                        localStorage.setItem('friend-req1',k);
+                        localStorage.setItem('friend-req',JSON.stringify({friends:users[k].friends,friend_request:localStorage.getItem('user').split('|')[1]+'|',custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name,custom_workout:users[k].custom_workout}));
+         //           firebase.database().ref('users/'+k).set({friend_request:localStorage.getItem('user').split('|')[1],password:users[k].password,email:users[k].email,name:users[k].name,custom_workout:users[k].custom_workout});
+         setTimeout(()=>{location.reload();},3000);        
+        }
+                    else{
+                        localStorage.setItem('friend-req1',k);
+                        localStorage.setItem('friend-req',JSON.stringify({friends:users[k].friends,friend_request:users[k].friend_request+localStorage.getItem('user').split('|')[1]+'|',custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name,custom_workout:users[k].custom_workout}));
+           //             firebase.database().ref('users/'+k).set({friend_request:users[k].friend_request+'|'+localStorage.getItem('user').split('|')[1],password:users[k].password,email:users[k].email,name:users[k].name,custom_workout:users[k].custom_workout});
+           setTimeout(()=>{location.reload();},3000);            
+        }
+                }
+                    }
+                 
+            }
+
+        }
+        function errData(err){console.log(err)}  
+       // console.log(JSON.parse(localStorage.getItem('friend-req')))
+       // firebase.database().ref('users/'+localStorage.getItem('friend-req1')).set(JSON.parse(localStorage.getItem('friend-req')));
+    }
+        </script>
+    
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

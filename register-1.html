@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>AlwaysFit</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+</head>
+
+<body style="background-color: #f1f7fc;">
+      <section class="contact-clean">
+          <div style="background-color: white;margin-left: 30vw;margin-right: 30vw;">
+            <div style="height: 15px;"></div>
+            <h2 class="text-center">New User</h2>
+            <div class="mb-3" style="margin-left: 15px;margin-right: 45px;"><input class="form-control" type="text" name="name" id="name" placeholder="Name"></div>
+            <div class="mb-3" style="margin-left: 15px;margin-right: 45px;"><input class="form-control" type="text" name="name" id="email" placeholder="Email"></div>
+            <div class="mb-3" style="margin-left: 15px;margin-right: 45px;"><input class="form-control" type="text" name="name" id="password" placeholder="Password"></div>
+            <div class="mb-3" style="margin-left: 15px;margin-right: 45px;"><input class="form-control" type="text" name="name" id="confirm" placeholder="Confirm Password"></div>
+            <div class="mb-3"></div>
+            <div class="mb-3"><a href="javascript:click()"><button id="submit_button" class="btn btn-primary d-block" style="margin: auto;">Submit</button></a></div>
+            <div style="height: 15px;"></div>
+        </div>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+        // Import the functions you need from the SDKs you need
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        
+        function click() {
+            var firebaseConfig = {
+          apiKey: "AIzaSyB3GLp4gwJEu5lN5kbi8voqIWEmNT-QC4Y",
+          authDomain: "alwaysfit-a14c2.firebaseapp.com",
+          projectId: "alwaysfit-a14c2",
+          storageBucket: "alwaysfit-a14c2.appspot.com",
+          messagingSenderId: "916716548521",
+          databaseURL:"https://alwaysfit-a14c2-default-rtdb.firebaseio.com/"
+        };
+      
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        if(document.getElementById('password').value==document.getElementById('confirm').value){
+        firebase.database().ref('users').push({
+            name:document.getElementById('name').value,
+            password:document.getElementById('password').value,
+            email:document.getElementById('email').value
+        });
+        setTimeout(function(){window.location.href='login-1.html'},3000);
+    }
+        }
+        </script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+</body>
+
+</html>

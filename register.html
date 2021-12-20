@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Table - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>Fitness First</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="table.html"><i class="fas fa-table"></i><span>LeaderBoard</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-cogs"></i><span>Settings</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-dumbbell"></i><span>Custom Workout</span></a></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group"><input id="entrysearch" class="bg-light form-control border-0 small" type="text" placeholder="Search for ..."><a href="javascript:search()"class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></a></div>
+                        </form>
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
+                                <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown">
+                                    <form class="me-auto navbar-search w-100">
+                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                            <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="badge bg-danger badge-counter" id="nofr"></span><i class="fas fa-user fa-fw"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-end dropdown-list animated--grow-in" id='friendrequest'>
+                                    </div>
+                                </div>
+                                <div class="shadow dropdown-list dropdown-menu dropdown-menu-end" aria-labelledby="alertsDropdown"></div>
+                            </li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small">Nigel Dias</span></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-dark mb-0" style="margin-left:10px;" id="nill"></h3>
+                </div>
+                <div class="row" style="margin-left: 10px;margin-right: 10px;">
+                    <a id='link' href="do_exercice.html">
+                    </a></div>
+            <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+        
+            var firebaseConfig = {
+          apiKey: "AIzaSyB3GLp4gwJEu5lN5kbi8voqIWEmNT-QC4Y",
+          authDomain: "alwaysfit-a14c2.firebaseapp.com",
+          projectId: "alwaysfit-a14c2",
+          storageBucket: "alwaysfit-a14c2.appspot.com",
+          messagingSenderId: "916716548521",
+          databaseURL:"https://alwaysfit-a14c2-default-rtdb.firebaseio.com/"
+        };
+      
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+
+        if(localStorage.getItem('fr1')!='null' && localStorage.getItem('fr1')!=null){
+        firebase.database().ref('users/'+localStorage.getItem('fr')).set(JSON.parse(localStorage.getItem('fr1')));
+    
+        firebase.database().ref('users/'+localStorage.getItem('fr2k')).set(JSON.parse(localStorage.getItem('fr2')));
+        localStorage.setItem('fr',null);
+        localStorage.setItem('fr1',null);
+        localStorage.setItem('fr2k',null);
+        localStorage.setItem('fr2',null);           
+      }
+      if(localStorage.getItem('fr1d')!='null' && localStorage.getItem('fr1d')!=null){
+        firebase.database().ref('users/'+localStorage.getItem('frd')).set(JSON.parse(localStorage.getItem('fr1d')));
+        localStorage.setItem('fr1d',null);
+        localStorage.setItem('frd',null);
+      }
+
+
+        firebase.database().ref('users').on('value',gotData,errData);
+        function gotData(data){
+            var users=data.val();
+            var keys = Object.keys(users);
+            var inside_html='<h6 class="dropdown-header">Friend requests</h6>';
+            var inside_friend_html='';
+            for(var i =0;i<keys.length;i++){
+                var k=keys[i];
+                if(users[k].email==localStorage.getItem('user').split('|')[1]){
+                    if(users[k].friend_request!=undefined){
+                document.getElementById('nofr').innerHTML=(users[k].friend_request.split('|').length-1).toString();
+                for(var x =0;x<users[k].friend_request.split('|').length-1;x++){
+                var l=users[k].friend_request.split('|')[x];
+                inside_html=inside_html+'<div class="fw-bold"><div class="text-truncate"><span>'+l+'</span></div><p class="small text-gray-500 mb-0"><a href="javascript:c(\''+l+'\',\'accept\')"><button class="btn btn-success" style="padding-top:0px;padding-bottom:0px;padding-left:2.5px;padding-right:2.5px;"><i class="fa fa-check" style="color:white;font-size:10px;"></i></button></a> <a href="javascript:c(\''+l+'\',\'decline\')"><button class="btn btn-danger" style="padding-top:0px;padding-bottom:0px;padding-left:2.5px;padding-right:2.5px;"><i class="fa fa-times" style="color:white;font-size:10px;"></i></button></a></p></div>'    
+                 }}
+                 
+        }
+                if(users[k].custom_workout=="Squats" && users[k].email==localStorage.getItem('user').split('|')[1]){
+                    document.getElementById('link').innerHTML='<div class="card shadow border-start-primary py-2"><div class="card-body"><div class="row"><div class="col-md-4"><img src="assets/img/squats.gif" style="width:100px;height:100px;"></div><div class="col-md-4" style="display:flex;align-items: center;justify-content: 100%;" ><h1 style="font-size: 20px;font-weight: bold;color: black;">Squats</h1></div><div class="col-md-4" style="display:flex;align-items: center;justify-content: center;"><a href="javascript:clic(clic(\''+k+'\'))"><i class="fa fa-trash"></i></a></div></div></div></div>';
+                console.log('If Condition is running');
+                console.log(users[k].custom_workout);
+                console.log(users[k].email);
+                console.log(localStorage.getItem('user').split('|')[1]);
+                }
+                else{
+                    if(users[k].email==localStorage.getItem('user').split('|')[1]){
+                    document.getElementById('nill').innerHTML="No exercises added to Custom Workout"
+                console.log('else condition is running')}
+                
+                console.log(users[k].custom_workout);
+                console.log(users[k].email);
+                console.log(localStorage.getItem('user').split('|')[1]);
+                }
+            }
+            console.log(inside_html) 
+            document.getElementById('friendrequest').innerHTML=inside_html;
+        }
+        function errData(err){console.log(err)}  
+        function clic(k){
+            firebase.database().ref('users/'+k+'/custom_workout').remove();
+            setTimeout(function(){window.location.href="register.html"},3000)
+        }
+        function search() {
+            localStorage.setItem('search',document.getElementById('entrysearch').value)
+            window.location.href='search.html';
+
+        }
+        function c(c,d) {
+
+firebase.database().ref('users').on('value',gotData,errData);
+function gotData(data){
+    var users=data.val();
+    var keys = Object.keys(users);
+    if(d=="accept"){
+        for(var i =0;i<keys.length;i++){
+        var k=keys[i];
+        console.log(i);
+        
+        if(users[k].email==c){
+            if(users[k].friends==undefined||users[k].friends==''){
+            localStorage.setItem('fr2k',k)
+            localStorage.setItem('fr2',JSON.stringify({friends:localStorage.getItem('user').split('|')[1]+'|',friend_request:users[k].friend_request,custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name}))
+            console.log(localStorage.getItem('fr2'));
+            console.log(localStorage.getItem('fr2k'));
+        }
+        else{
+            localStorage.setItem('fr2k',k)
+            localStorage.setItem('fr',JSON.stringify({friends:users[k].friends+localStorage.getItem('user').split('|')[1]+'|',friend_request:users[k].friend_request,custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name}))
+            console.log(localStorage.getItem('fr2'));
+            console.log(localStorage.getItem('fr2k'));
+        }
+        }
+        
+
+        if(users[k].email==localStorage.getItem('user').split('|')[1]){
+        if(users[k].friends==undefined||users[k].friends==''){
+            localStorage.setItem('fr',k)
+            localStorage.setItem('fr1',JSON.stringify({friends:c+'|',friend_request:users[k].friend_request.replace(c+'|',""),custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name}))
+            console.log(localStorage.getItem('fr'));
+            console.log(localStorage.getItem('fr1'));
+            //   firebase.database().ref('users/'+k).set({friends:c+'|',friend_request:users[k].friend_request.replace(c+'|',""),password:users[k].password,email:users[k].email,name:users[k].name});
+        }
+        else{
+            localStorage.setItem('fr',k)
+            localStorage.setItem('fr1',JSON.stringify({friends:users[k].friends+c+'|',friend_request:users[k].friend_request.replace(c+'|',""),custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name}))
+            console.log(localStorage.getItem('fr'));
+            console.log(localStorage.getItem('fr1'));
+            //  firebase.database().ref('users/'+k).set({friends:users[k].friends+c+'|',friend_request:users[k].friend_request.replace(c+'|',""),password:users[k].password,email:users[k].email,name:users[k].name});
+        }
+       
+    }
+            
+         
+    }
+    setTimeout(()=>{location.reload();},3000);
+
+    }
+    if(d=="decline"){
+        for(var i =0;i<keys.length;i++){
+        var k=keys[i];
+        console.log(i);
+
+        if(users[k].email==localStorage.getItem('user').split('|')[1]){
+           localStorage.setItem('frd',k)
+            localStorage.setItem('fr1d',JSON.stringify({friends:users[k].friends,friend_request:users[k].friend_request.replace(c+'|',""),custom_workout:users[k].custom_workout,password:users[k].password,email:users[k].email,name:users[k].name}))
+         //   firebase.database().ref('users/'+k).set({friends:c+'|',friend_request:users[k].friend_request.replace(c+'|',""),password:users[k].password,email:users[k].email,name:users[k].name});
+         //  setTimeout(()=>{location.reload();},3000);
+      
+       
+    }
+            
+         
+    }
+    setTimeout(()=>{location.reload();},3000);
+
+    }
+    
+}
+function errData(err){console.log(err)}
+}
+
+        </script>
+    
+                <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+            <script src="assets/js/chart.min.js"></script>
+            <script src="assets/js/bs-init.js"></script>
+            <script src="assets/js/theme.js"></script>
+        
+    </body>
+        
+</html>
